@@ -1,0 +1,363 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background-color: aquamarine; */
+}
+.container {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2em;
+
+}
+body{
+    background: rgb(2,0,36);
+background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 29%, rgba(0,212,255,1) 100%);
+}
+
+.card {
+    display: grid;
+    place-items: center;
+    height: 90px;
+    width: 90px;
+    background-color: yellow;
+    border-radius: 10px;
+    background-image: linear-gradient(45deg,blue, white);
+    /* cursor: pointer; */
+    /* transition: 0.3s all ease; */
+    transform: scale(1.03);
+}
+
+.card img{
+    position: absolute;
+    width: 90px;
+    max-height: 90px;
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.card text {
+    font-size: 5000px;
+}
+#GuessBox {
+    position: relative;
+    width: 250px;
+
+     
+}
+
+#GuessBox input {
+    width: 100%;
+    padding: 10px;
+    border: 3px solid rgba(178, 48, 48, 0.25);
+    border-radius: 5px;
+    /* text-transform: uppercase; */
+    color: rgb(17, 129, 227);
+    font-size: 1em;
+}  
+#GuessBox span{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(178, 48, 48, 0.25);
+    text-transform: uppercase;
+    transition: 0.5s;
+
+}
+#GuessBox input:valid ~ span,
+#GuessBox input:focus ~ span {
+    color: black;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background-color: white;
+}
+/* button{
+    color: orange;
+} */
+
+/* CSS */button {
+    margin: auto;
+    margin-bottom: 50px;
+  background-color: #3DD1E7;
+  border: 0 solid #E5E7EB;
+  box-sizing: border-box;
+  color: #000000;
+  display: flex;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1.75rem;
+  padding: .75rem 1.65rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none #000000 solid;
+  text-decoration-thickness: auto;
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  cursor: pointer;
+  transform: rotate(-2deg);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+button:focus {
+  outline: 0;
+}
+button:after {
+  content: '';
+  position: absolute;
+  border: 1px solid #000000;
+  bottom: 4px;
+  left: 4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+}
+button:hover:after {
+  bottom: 2px;
+  left: 2px;
+}
+
+@media (min-width: 768px) {
+button {
+    padding: .75rem 3rem;
+    font-size: 1.25rem;
+  }
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;        
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: fixed;
+    bottom: 0;
+    background-color: #fefefe;
+    /* margin-left: 75px; */
+    height: 200px;
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .modal-header {
+  
+    
+    padding: 15px 16px;
+    background-color: #2399c7;
+    color: white;
+  }
+  .modal-header h2{
+    text-align: center;
+  }
+  .modal-body {padding: 2px 16px;}
+  
+  .modal-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 4vh;
+    /* height: 50px; */
+    padding: 15px 16px;
+    background-color: #2399c7;
+    color: white;
+  }
+  .Home{
+    margin-left: 180px;
+  }
+  /* Add Animation */
+  @-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0} 
+    to {bottom: 0; opacity: 1}
+  }
+  
+  @keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
+
+  /* css for rating */
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.star img{
+
+  opacity: 0;
+}
+
+
+
+/* buttons play-again */
+.play-again {
+  appearance: button;
+  background-color: #ade249;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  /* margin: 0; */
+  outline: none;
+  overflow: visible;
+  padding: 8px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 15%;
+}
+
+.play-again:after {
+  background-clip: padding-box;
+  background-color: #e9d11c;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.play-again:main,
+.play-again:focus {
+  user-select: auto;
+}
+
+.play-again:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.play-again:disabled {
+  cursor: auto;
+}
+
+/* Home button */
+.Home {
+  appearance: button;
+  background-color: #ade249;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin-right: 150px;
+  outline: none;
+  overflow: visible;
+  padding: 10px 13px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 50%;
+}
+
+.Home:after {
+  background-clip: padding-box;
+  background-color: #e9d11c;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.Home:main,
+.Home:focus {
+  user-select: auto;
+}
+
+.Home:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.Home:disabled {
+  cursor: auto;
+}
